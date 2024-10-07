@@ -85,6 +85,7 @@ def tai_nguyen():
 
 def video_clips():
     st.markdown("<h2 style='color: black;'>Video và Postcard về Tự Phê Bình</h2>", unsafe_allow_html=True)
+    st.video("https://www.youtube.com/watch?v=BTTM3Zu9YAI")  
     st.write("Các video giúp bạn nâng cao quá trình tự phê bình.")
 
 def dien_dan():
