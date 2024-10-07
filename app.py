@@ -1,9 +1,7 @@
 import streamlit as st
 
-# Cấu hình trang chính
 st.set_page_config(page_title="Web Tự Phê Bình")
 
-# Tạo nền và chỉnh màu sắc bằng cách chèn CSS vào Streamlit
 def add_bg_from_url():
     st.markdown(
         f"""
@@ -19,14 +17,11 @@ def add_bg_from_url():
         unsafe_allow_html=True
     )
 
-# Thêm background
 add_bg_from_url()
 
-# Sidebar Menu với icon và styling
 st.sidebar.markdown("""
     <style>
     .sidebar .sidebar-content {{
-        background-color: #2C3E50;
         color: white; /* Màu chữ trắng cho sidebar */
     }}
     .sidebar h1, .sidebar h2, .sidebar h3, .sidebar h4, .sidebar h5, .sidebar h6, .sidebar p {{
@@ -44,7 +39,6 @@ menu = st.sidebar.selectbox("Chọn mục bạn muốn xem",
                              "📂 Tài nguyên", "🎬 Video Clips", 
                              "💬 Diễn đàn", "📝 Nhật ký cá nhân"])
 
-# Chức năng trang chủ
 def trang_chu():
     st.markdown("<h1 style='text-align: center; color: black;'>Chào Mừng Bạn</h1>", unsafe_allow_html=True)
     st.write("""
@@ -70,10 +64,8 @@ def trang_chu():
         </style>
     """, unsafe_allow_html=True)
 
-    # Horizontal line
     st.markdown("<hr>", unsafe_allow_html=True)
 
-    # Image with caption centered and styled as black
     st.markdown("""
         <div class="center">
             <img src="https://i.imgur.com/4K8PmfB.jpg" alt="Tự phê bình là hành trình tự khám phá">
@@ -81,30 +73,24 @@ def trang_chu():
         </div>
     """, unsafe_allow_html=True)
 
-# Chức năng tri thức về tự phê bình
 def tri_thuc():
     st.markdown("<h2 style='color: black;'>Tri thức về Tự Phê Bình</h2>", unsafe_allow_html=True)
     st.write("Tìm hiểu về những bài viết và tài liệu giúp nâng cao nhận thức về tự phê bình.")
     st.text_area(" ", placeholder="Viết chia sẻ của bạn tại đây...", height=200)
 
-# Chức năng tài nguyên
 def tai_nguyen():
     st.markdown("<h2 style='color: black;'>Tài Nguyên</h2>", unsafe_allow_html=True)
     st.write("Tài liệu và công cụ giúp quá trình tự phê bình của bạn hiệu quả hơn.")
     st.file_uploader(" ", type=["pdf", "docx"])
 
-# Chức năng video clips
 def video_clips():
     st.markdown("<h2 style='color: black;'>Video và Postcard về Tự Phê Bình</h2>", unsafe_allow_html=True)
-    st.video("https://www.youtube.com/watch?v=BTTM3Zu9YAI")  # Thay bằng video tự phê bình
     st.write("Các video giúp bạn nâng cao quá trình tự phê bình.")
 
-# Chức năng diễn đàn
 def dien_dan():
     st.markdown("<h2 style='color: black;'>Diễn Đàn Thảo Luận</h2>", unsafe_allow_html=True)
     st.text_area(" ", placeholder="Nhập ý kiến tại đây...")
 
-# Chức năng nhật ký cá nhân
 def nhat_ky():
     st.markdown("<h2 style='color: black;'>Nhật Ký Tự Phê Bình Cá Nhân</h2>", unsafe_allow_html=True)
     diary_entry = st.text_area(" ", placeholder="Viết nhật ký của bạn...", height=200)
@@ -114,7 +100,6 @@ def nhat_ky():
     <style>
     .stButton > button {
         color: white;
-        background-color: #171717; 
         border: none; 
         border-radius: 5px;  
         padding: 10px 20px;  
@@ -129,7 +114,6 @@ def nhat_ky():
             f.write(diary_entry + "\n---\n")
         st.success("Nhật ký của bạn đã được lưu thành công!")
 
-# Logic để điều hướng menu
 if menu == "🏠 Trang chủ":
     trang_chu()
 elif menu == "📚 Tri thức về tự phê bình":
