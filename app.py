@@ -152,9 +152,55 @@ def tri_thuc():
         """, unsafe_allow_html=True)
 
 def tai_nguyen():
-    st.markdown("<h2 style='color: black;'>Tài Nguyên</h2>", unsafe_allow_html=True)
-    st.write("Tài liệu và công cụ giúp quá trình tự phê bình của bạn hiệu quả hơn.")
-    st.file_uploader(" ", type=["pdf", "docx"])
+    st.markdown("<h2 style='color: #FFFFF0;'>Tài Nguyên</h2>", unsafe_allow_html=True)
+
+    # Submenu selection
+    resource = st.selectbox("Chọn tài nguyên bạn muốn xem:", 
+                             ["TÀI LIỆU KHOA HỌC", 
+                              "PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”", 
+                              "BỘ CÔNG CỤ TỰ KIỂM", 
+                              "VIDEO BÁO CÁO TỰ PHÊ BÌNH"])
+
+    # TÀI LIỆU KHOA HỌC
+    if resource == "TÀI LIỆU KHOA HỌC":
+        st.markdown("<h3 style='color: #FFFFE0;'>📚 TÀI LIỆU KHOA HỌC</h3>", unsafe_allow_html=True)
+        st.markdown("[Text Anxiety in Adolescents: The Role of Self-Criticism and Acceptance and Mindfulness Skills](https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/text-anxiety-in-adolescents-the-role-of-selfcriticism-and-acceptance-and-mindfulness-skills/F0B720E018D0A891050899676ADC6430)")
+        st.markdown("[Self-Criticism Scale](https://www.researchgate.net/publication/377149610_Self-Criticism_Scale)")
+        st.markdown("[Self-criticizing and self-criticism: How do I stop the cycle?](https://thriveworks.com/help-with/self-improvement/self-criticism/)")
+        st.markdown("[Self-Criticism](https://www.sciencedirect.com/topics/psychology/self-criticism)")
+        
+        st.video("https://www.youtube.com/watch?v=example")  
+
+    # PODCAST
+    elif resource == "PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”":
+        st.markdown("<h3 style='color: #FFFFE0;'>🎙️ PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”</h3>", unsafe_allow_html=True)
+        st.video("https://www.youtube.com/watch?v=XTjwW8npbm8")  
+
+    # BỘ CÔNG CỤ TỰ KIỂM
+    elif resource == "BỘ CÔNG CỤ TỰ KIỂM":
+        st.markdown("<h3 style='color: #FFFFE0;'>🛠️ BỘ CÔNG CỤ TỰ KIỂM RÈN LUYỆN KỸ NĂNG TỰ PHÊ BÌNH TRONG LÀM VIỆC NHÓM</h3>", unsafe_allow_html=True)
+    
+        cols1 = st.columns(2)  
+        
+        with cols1[0]:
+            st.image("resources/tools/work1.png", use_column_width=True)  
+            
+        with cols1[1]:
+            st.image("resources/tools/work2.png", use_column_width=True)  
+        
+        cols2 = st.columns(2)
+        with cols2[0]:
+            st.image("resources/tools/work3.png", use_column_width=True)  
+            
+        with cols2[1]:
+            st.image("resources/tools/work4.png", use_column_width=True)  
+
+    # VIDEO BÁO CÁO TỰ PHÊ BÌNH
+    elif resource == "VIDEO BÁO CÁO TỰ PHÊ BÌNH":
+        st.markdown("<h3 style='color: #FFFFE0;'>📹 VIDEO BÁO CÁO TỰ PHÊ BÌNH</h3>", unsafe_allow_html=True)
+        st.video("https://www.youtube.com/watch?v=xSEyk3rFp3g") 
+        
+
 
 def video_clips():
     st.markdown("<h2 style='color: black;'>Video và Postcard về Tự Phê Bình</h2>", unsafe_allow_html=True)
