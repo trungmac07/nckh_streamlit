@@ -1,58 +1,6 @@
 import base64
 import streamlit as st
-
-diary_data = {
-    "2024-10-09": {
-        "event": "Hôm nay, trong buổi thuyết trình nhóm, tôi không chuẩn bị kỹ lưỡng nội dung và khi đến lượt mình trình bày, tôi đã ấp úng và không truyền đạt được ý chính. Điều này khiến buổi thuyết trình không đạt được hiệu quả cao.",
-        "emotion": "Tôi cảm thấy khá xấu hổ và lo lắng khi nhận ra rằng sự chuẩn bị của mình không đầy đủ. Tôi cũng có chút tự ti về khả năng giao tiếp của mình.",
-        "flaw": "Thiếu sự chuẩn bị và chưa luyện tập thuyết trình trước. Không kiểm soát được cảm xúc khi đứng trước đám đông.",
-        "lesson": "Cần dành nhiều thời gian hơn để chuẩn bị và rèn luyện kỹ năng thuyết trình. Trước khi lên trình bày, nên luyện tập với bạn bè hoặc trước gương để kiểm soát tốt hơn.",
-        "improvement_plan": "Trong tương lai, tôi sẽ đặt lịch dành ít nhất 2 tiếng để chuẩn bị và thực hành trước mỗi buổi thuyết trình. Đồng thời, tôi sẽ tham gia các hoạt động giúp tăng cường kỹ năng giao tiếp như thảo luận nhóm."
-    },
-    "2024-10-10": {
-        "event": "Tôi đã cãi nhau với một người bạn vì những bất đồng nhỏ. Thay vì bình tĩnh giải quyết vấn đề, tôi đã nổi giận và nói những lời không hay.",
-        "emotion": "Sau khi cãi nhau, tôi cảm thấy rất hối hận và nhận ra rằng mình đã để cảm xúc lấn át lý trí.",
-        "flaw": "Không kiềm chế được cảm xúc và thiếu khả năng giao tiếp trong tình huống căng thẳng.",
-        "lesson": "Mỗi khi gặp bất đồng, thay vì phản ứng ngay lập tức, tôi cần giữ bình tĩnh và lắng nghe ý kiến của đối phương một cách cẩn thận.",
-        "improvement_plan": "Tôi sẽ học cách kiểm soát cảm xúc tốt hơn bằng cách thực hành thiền và tham gia các lớp học kỹ năng giao tiếp. Tôi cũng sẽ nhắn tin xin lỗi bạn và hẹn gặp mặt để giải quyết vấn đề."
-    },
-    "2024-10-11": {
-        "event": "Hôm nay, tôi lãng phí gần hết một buổi sáng chỉ để lướt mạng xã hội và không làm được việc gì hiệu quả.",
-        "emotion": "Tôi cảm thấy thất vọng về bản thân vì đã không quản lý thời gian tốt và để lỡ những công việc quan trọng.",
-        "flaw": "Thiếu kỷ luật và dễ bị phân tâm bởi những việc vô bổ.",
-        "lesson": "Cần có kế hoạch sử dụng thời gian cụ thể và biết nói 'không' với những điều làm mất tập trung.",
-        "improvement_plan": "Tôi sẽ thiết lập thời gian cụ thể cho việc kiểm tra mạng xã hội và giới hạn mỗi ngày chỉ 30 phút. Ngoài ra, tôi sẽ lên danh sách công việc cần làm và cam kết hoàn thành từng nhiệm vụ trong ngày."
-    },
-    "2024-10-12": {
-        "event": "Trong buổi làm việc nhóm, tôi không chủ động đóng góp ý kiến và chỉ ngồi nghe người khác thảo luận.",
-        "emotion": "Tôi cảm thấy mình lạc lõng và thiếu tự tin khi không dám nêu ra quan điểm cá nhân.",
-        "flaw": "Thiếu sự tự tin và chủ động trong giao tiếp, khiến tôi không có tiếng nói trong nhóm.",
-        "lesson": "Tôi cần cải thiện khả năng giao tiếp và học cách chủ động chia sẻ suy nghĩ của mình, ngay cả khi lo lắng bị đánh giá.",
-        "improvement_plan": "Tôi sẽ tham gia thêm các buổi học về phát triển kỹ năng giao tiếp và học cách đưa ra ý kiến một cách rõ ràng. Tôi cũng sẽ luyện tập nêu quan điểm với nhóm nhỏ để làm quen với việc bày tỏ ý kiến."
-    },
-    "2024-10-13": {
-        "event": "Tôi đã thức khuya để xem phim, khiến sáng hôm sau khó dậy sớm và làm ảnh hưởng đến công việc.",
-        "emotion": "Tôi cảm thấy mệt mỏi và tiếc nuối vì đã không biết giữ gìn sức khỏe, ảnh hưởng đến chất lượng làm việc.",
-        "flaw": "Thiếu sự kiên định và kỷ luật trong việc duy trì thói quen sinh hoạt lành mạnh.",
-        "lesson": "Việc giữ gìn sức khỏe quan trọng hơn rất nhiều so với các thú vui tạm thời. Cần biết ưu tiên cho giấc ngủ và năng lượng.",
-        "improvement_plan": "Tôi sẽ lên lịch ngủ cố định, đặt báo thức nhắc nhở giờ đi ngủ và không để điện thoại hoặc thiết bị giải trí trong phòng ngủ."
-    },
-    "2024-10-14": {
-        "event": "Tôi đã không thực hiện đúng kế hoạch học tập, thay vào đó dành thời gian xem video và chơi game.",
-        "emotion": "Tôi cảm thấy áp lực khi nhận ra rằng mình đã lãng phí thời gian và không tiến bộ trong việc học.",
-        "flaw": "Thiếu kỷ luật và dễ bị phân tâm bởi các hoạt động giải trí.",
-        "lesson": "Việc trì hoãn sẽ khiến áp lực tăng cao và ảnh hưởng đến kết quả học tập. Cần đặt ra mục tiêu và kế hoạch cụ thể hơn.",
-        "improvement_plan": "Tôi sẽ chia nhỏ các nhiệm vụ học tập để dễ dàng thực hiện, đồng thời đặt ra phần thưởng khi hoàn thành để tự khuyến khích bản thân."
-    },
-    "2024-10-15": {
-        "event": "Hôm nay, tôi có một cuộc trò chuyện không tốt với một đồng nghiệp. Tôi đã vô tình dùng từ ngữ không phù hợp khiến họ cảm thấy bị xúc phạm.",
-        "emotion": "Tôi cảm thấy rất hối hận vì đã không chú ý đến cách giao tiếp và khiến người khác cảm thấy không thoải mái.",
-        "flaw": "Thiếu cẩn trọng trong cách dùng từ và giao tiếp, chưa đủ nhạy cảm với cảm xúc của người khác.",
-        "lesson": "Cần lắng nghe kỹ trước khi đưa ra nhận xét và luôn lựa chọn từ ngữ phù hợp khi giao tiếp, đặc biệt trong môi trường công việc.",
-        "improvement_plan": "Tôi sẽ xin lỗi đồng nghiệp và nhờ họ chia sẻ cảm nhận. Đồng thời, tôi sẽ tìm hiểu thêm về kỹ năng giao tiếp chuyên nghiệp và học cách đồng cảm hơn với người khác."
-    }
-}
-
+from diary import diary_data
 
 st.set_page_config(page_title="Mảnh Ghép Của Tôi", layout="wide")
 
@@ -155,7 +103,6 @@ def trang_chu():
 def tri_thuc():
     st.markdown("<h1 style='text-align: center; color: #FFFFF0;'>🌟 Kỹ Năng Tự Phê Bình 🌟</h1>", unsafe_allow_html=True)
 
-    # Add CSS to change the expander title color
     st.markdown(
         """
         <style>
@@ -207,14 +154,12 @@ def tri_thuc():
 def tai_nguyen():
     st.markdown("<h2 style='color: #FFFFF0;'>Tài Nguyên</h2>", unsafe_allow_html=True)
 
-    # Submenu selection
     resource = st.selectbox("Chọn tài nguyên bạn muốn xem:", 
                              ["TÀI LIỆU KHOA HỌC", 
                               "PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”", 
                               "BỘ CÔNG CỤ TỰ KIỂM", 
                               "VIDEO BÁO CÁO TỰ PHÊ BÌNH"])
 
-    # TÀI LIỆU KHOA HỌC
     if resource == "TÀI LIỆU KHOA HỌC":
         st.markdown("<h3 style='color: #FFFFE0; margin: 30px 0px'>📚 TÀI LIỆU KHOA HỌC</h3>", unsafe_allow_html=True)
         links = [
@@ -226,14 +171,13 @@ def tai_nguyen():
 
         for text, url in links:
             st.markdown(f'<a href="{url}" style="text-decoration: none; color: #FFFFF0; font-weight: bold; font-size:20px; line-height: 1"><u>{text}</u></a>', unsafe_allow_html=True)
-            st.markdown("<br>", unsafe_allow_html=True)  # Adding space between links
+            st.markdown("<br>", unsafe_allow_html=True) 
 
-    # PODCAST
     elif resource == "PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”":
         st.markdown("<h3 style='color: #FFFFE0;'>🎙️ PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”</h3>", unsafe_allow_html=True)
         st.video("https://www.youtube.com/watch?v=XTjwW8npbm8")  
 
-    # BỘ CÔNG CỤ TỰ KIỂM
+    
     elif resource == "BỘ CÔNG CỤ TỰ KIỂM":
         st.markdown("<h3 style='color: #FFFFE0;'>🛠️ BỘ CÔNG CỤ TỰ KIỂM RÈN LUYỆN KỸ NĂNG TỰ PHÊ BÌNH TRONG LÀM VIỆC NHÓM</h3>", unsafe_allow_html=True)
     
@@ -252,7 +196,7 @@ def tai_nguyen():
         with cols2[1]:
             st.image("resources/tools/work4.png", use_column_width=True)  
 
-    # VIDEO BÁO CÁO TỰ PHÊ BÌNH
+
     elif resource == "VIDEO BÁO CÁO TỰ PHÊ BÌNH":
         st.markdown("<h3 style='color: #FFFFE0;'>📹 VIDEO BÁO CÁO TỰ PHÊ BÌNH</h3>", unsafe_allow_html=True)
         st.video("https://www.youtube.com/watch?v=xSEyk3rFp3g") 
@@ -261,7 +205,6 @@ def tai_nguyen():
 def dien_dan():
     st.markdown("<h2 style='color: #FFFFF0;'>Diễn Đàn Thảo Luận</h2>", unsafe_allow_html=True)
 
-    # Danh sách để lưu trữ các tin nhắn
     chat_history = [
         ("Nam Đẹp Trai", "Chào bạn, mình thấy bạn mới tham gia diễn đàn. Bạn đã bao giờ thực hành tự phê bình chưa?"),
         ("My Mít Ướt", "Chào bạn! Mình mới bắt đầu tìm hiểu. Mình từng nghe về khái niệm này trong một buổi hướng nghiệp ở trường, nhưng vẫn chưa thực sự biết cách thực hiện. Bạn có thể chia sẻ quá trình tự phê bình của bạn được không?"),
@@ -276,7 +219,6 @@ def dien_dan():
         ("Nam Đẹp Trai", "Đừng lo lắng quá! Ai cũng có lúc mắc sai lầm. Quan trọng là bạn biết nhìn nhận và cố gắng cải thiện. Chúc bạn thành công trong hành trình này!"),
         ("My Mít Ướt", "Cảm ơn bạn! Mình sẽ cố gắng.")]
 
-    # Hiển thị các tin nhắn với hiệu ứng bong bóng
     for sender, message in chat_history:
         if sender == "Nam Đẹp Trai":
             st.markdown(f"""
@@ -295,20 +237,15 @@ def dien_dan():
                 </div>
             """, unsafe_allow_html=True)
 
-    # Khung nhập tin nhắn
     user_message = st.text_area("Nhập ý kiến của bạn tại đây...", height=100, placeholder="Viết tin nhắn của bạn ở đây...", key="user_input")
 
-    # Nút gửi tin nhắn
     if st.button("Gửi"):
         if user_message:
-            # Thêm tin nhắn mới vào danh sách
             chat_history.append(("Nam Đẹp Trai", user_message))
             st.success("Tin nhắn của bạn đã được gửi!")
-            #st.experimental_rerun()  # Tải lại trang để cập nhật tin nhắn mới
         else:
             st.warning("Vui lòng nhập tin nhắn trước khi gửi.")
 
-    # CSS cho nút
     st.markdown("""
     <style>
     .stButton > button {
@@ -331,15 +268,12 @@ import datetime
 def nhat_ky():
     st.markdown("<h2 style='color: #FFFFF0;'>Nhật Ký Tự Phê Bình Cá Nhân</h2>", unsafe_allow_html=True)
 
-    # Hiển thị lịch chọn ngày
     selected_date = st.date_input("Chọn ngày để xem nhật ký:", datetime.datetime.now(), key='date_picker')
 
-    # Kiểm tra nếu có dữ liệu cho ngày đã chọn
     date_key = selected_date.strftime("%Y-%m-%d")
     print(diary_data.keys())
     
     if date_key in diary_data.keys():
-        # Hiển thị thông tin nhật ký cho ngày đã chọn
         st.subheader(f"Nhật Ký cho ngày {date_key}:")
         st.markdown(f"""
             <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
@@ -361,21 +295,16 @@ def nhat_ky():
         """, unsafe_allow_html=True)
     else:
         st.warning("Không có dữ liệu cho ngày này.")
-
-        # Phần nhập nhật ký mới
         st.markdown("### Nhập nhật ký cho ngày này:")
-        
-        # Tạo các input cho nhật ký
-        
         st.markdown("""
             <style>
                 .stTextInput {
-                    color: white;  /* Màu chữ */
-                    border: none;  /* Không có viền */
-                    border-radius: 5px;  /* Bo tròn góc */
-                    padding: 10px 20px;  /* Khoảng cách trong nút */
-                    font-size: 25px;  /* Kích thước chữ */
-                    cursor: pointer;  /* Con trỏ khi di chuột qua */
+                    color: white;  
+                    border: none;  
+                    border-radius: 5px;
+                    padding: 10px 20px;  
+                    font-size: 25px;  
+                    cursor: pointer;  
                 }
             </style>
             """, unsafe_allow_html=True)
@@ -385,7 +314,6 @@ def nhat_ky():
         new_lesson = st.text_input("Bài học rút ra:", placeholder="Nhập bài học của bạn")
         new_improvement_plan = st.text_input("Kế hoạch cải thiện:", placeholder="Nhập kế hoạch của bạn")
 
-        # Nút lưu nhật ký với kiểu dáng
         st.markdown(
         """
         <style>
@@ -408,7 +336,6 @@ def nhat_ky():
         )
 
         if st.button("💾 Lưu Nhật Ký"):
-            # Lưu thông tin vào từ điển
             diary_data[date_key] = {
                 "event": new_event or "Không có thông tin",
                 "emotion": new_emotion or "Không có thông tin",
