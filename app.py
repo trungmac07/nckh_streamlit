@@ -144,7 +144,7 @@ def tri_thuc():
 
     with st.expander("IV. 💡 Những Lợi Ích Khi Học Sinh Phát Triển Kỹ Năng Tự Phê Bình"):
         st.markdown("""
-        <div style='background-color:</b> #FFFACD; padding: 10px; border-radius: 10px; color: black; font-size: 20px; line-height: 1.5' >
+        <div style='background-color: #FFFACD; padding: 10px; border-radius: 10px; color: black; font-size: 20px; line-height: 1.5' >
             • <b>Cải thiện kết quả học tập:</b> Khi học sinh biết nhìn nhận và sửa chữa lỗi lầm, họ sẽ cải thiện hiệu quả học tập và đạt được thành tích cao hơn.<br>
             • <b>Tăng cường sự tự tin:</b> Khi có khả năng tự phê bình và điều chỉnh, học sinh sẽ tự tin hơn trong việc đối mặt với các thử thách mới.<br>
             • <b>Xây dựng kỹ năng xã hội:</b> Khả năng tự phê bình giúp học sinh hòa đồng hơn, dễ dàng lắng nghe và tiếp thu ý kiến từ người khác.
