@@ -58,7 +58,7 @@ st.markdown(
 st.sidebar.title("📋 Menu Điều Hướng")
 menu = st.sidebar.selectbox("Chọn mục bạn muốn xem", 
                             ["🏠 Trang chủ", "📚 Tri thức về tự phê bình", 
-                             "📂 Tài nguyên", "🎬 Video Clips", 
+                             "🎬 Tài nguyên", 
                              "💬 Diễn đàn", "📝 Nhật ký cá nhân"])
 
 def trang_chu():
@@ -249,9 +249,9 @@ def dien_dan():
     if st.button("Gửi"):
         if user_message:
             # Thêm tin nhắn mới vào danh sách
-            chat_history.append(("Bạn", user_message))
+            chat_history.append(("Nam Đẹp Trai", user_message))
             st.success("Tin nhắn của bạn đã được gửi!")
-            st.experimental_rerun()  # Tải lại trang để cập nhật tin nhắn mới
+            #st.experimental_rerun()  # Tải lại trang để cập nhật tin nhắn mới
         else:
             st.warning("Vui lòng nhập tin nhắn trước khi gửi.")
 
