@@ -353,48 +353,48 @@ def nhat_ky():
     else:
         st.warning("Không có dữ liệu cho ngày này.")
 
-    # Phần nhập nhật ký mới
-    st.markdown("### Nhập nhật ký cho ngày này:")
-    
-    # Tạo các input cho nhật ký
-    new_event = st.text_input("Sự việc:", placeholder="Nhập sự việc xảy ra")
-    new_emotion = st.text_input("Cảm xúc:", placeholder="Nhập cảm xúc của bạn")
-    new_flaw = st.text_input("Khuyết điểm:", placeholder="Nhập khuyết điểm của bạn")
-    new_lesson = st.text_input("Bài học rút ra:", placeholder="Nhập bài học của bạn")
-    new_improvement_plan = st.text_input("Kế hoạch cải thiện:", placeholder="Nhập kế hoạch của bạn")
+        # Phần nhập nhật ký mới
+        st.markdown("### Nhập nhật ký cho ngày này:")
+        
+        # Tạo các input cho nhật ký
+        new_event = st.text_input("Sự việc:", placeholder="Nhập sự việc xảy ra")
+        new_emotion = st.text_input("Cảm xúc:", placeholder="Nhập cảm xúc của bạn")
+        new_flaw = st.text_input("Khuyết điểm:", placeholder="Nhập khuyết điểm của bạn")
+        new_lesson = st.text_input("Bài học rút ra:", placeholder="Nhập bài học của bạn")
+        new_improvement_plan = st.text_input("Kế hoạch cải thiện:", placeholder="Nhập kế hoạch của bạn")
 
-    # Nút lưu nhật ký với kiểu dáng
-    st.markdown(
-    """
-    <style>
-    .stButton > button {
-        color: white;
-        background-color: #1E90FF; /* Màu nền của nút */
-        border: none; 
-        border-radius: 5px;  
-        padding: 10px 20px;  
-        font-size: 16px; 
-        cursor: pointer;
-        transition: background-color 0.3s; /* Hiệu ứng khi di chuột */
-    }
-    .stButton > button:hover {
-        background-color: #00BFFF; /* Màu nền khi di chuột */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-    )
-
-    if st.button("💾 Lưu Nhật Ký"):
-        # Lưu thông tin vào từ điển
-        diary_data[date_key] = {
-            "event": new_event or "Không có thông tin",
-            "emotion": new_emotion or "Không có thông tin",
-            "flaw": new_flaw or "Không có thông tin",
-            "lesson": new_lesson or "Không có thông tin",
-            "improvement_plan": new_improvement_plan or "Không có thông tin"
+        # Nút lưu nhật ký với kiểu dáng
+        st.markdown(
+        """
+        <style>
+        .stButton > button {
+            color: white;
+            background-color: #1E90FF; /* Màu nền của nút */
+            border: none; 
+            border-radius: 5px;  
+            padding: 10px 20px;  
+            font-size: 16px; 
+            cursor: pointer;
+            transition: background-color 0.3s; /* Hiệu ứng khi di chuột */
         }
-        st.success("Nhật ký của bạn đã được lưu thành công!")
+        .stButton > button:hover {
+            background-color: #00BFFF; /* Màu nền khi di chuột */
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+        )
+
+        if st.button("💾 Lưu Nhật Ký"):
+            # Lưu thông tin vào từ điển
+            diary_data[date_key] = {
+                "event": new_event or "Không có thông tin",
+                "emotion": new_emotion or "Không có thông tin",
+                "flaw": new_flaw or "Không có thông tin",
+                "lesson": new_lesson or "Không có thông tin",
+                "improvement_plan": new_improvement_plan or "Không có thông tin"
+            }
+            st.success("Nhật ký của bạn đã được lưu thành công!")
 
 
 if menu == "🏠 Trang chủ":
