@@ -329,7 +329,7 @@ import datetime
 
 
 def nhat_ky():
-    st.markdown("<h2 style='color: black;'>Nhật Ký Tự Phê Bình Cá Nhân</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='color: #FFFFF0;'>Nhật Ký Tự Phê Bình Cá Nhân</h2>", unsafe_allow_html=True)
 
     # Hiển thị lịch chọn ngày
     selected_date = st.date_input("Chọn ngày để xem nhật ký:", datetime.datetime.now(), key='date_picker')
