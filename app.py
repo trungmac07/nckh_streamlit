@@ -343,12 +343,21 @@ def nhat_ky():
         st.subheader(f"Nhật Ký cho ngày {date_key}:")
         st.markdown(f"""
             <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
-                <strong>Sự việc:</strong> {diary_data[date_key]['event']}<br>
-                <strong>Cảm xúc:</strong> {diary_data[date_key]['emotion']}<br>
-                <strong>Khuyết điểm:</strong> {diary_data[date_key]['flaw']}<br>
-                <strong>Bài học rút ra:</strong> {diary_data[date_key]['lesson']}<br>
+                <strong>Sự việc:</strong> {diary_data[date_key]['event']}
+            </div>
+            <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
+                <strong>Cảm xúc:</strong> {diary_data[date_key]['emotion']}
+            </div>
+            <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
+                <strong>Khuyết điểm:</strong> {diary_data[date_key]['flaw']}
+            </div>
+            <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
+                <strong>Bài học rút ra:</strong> {diary_data[date_key]['lesson']}
+            </div>
+            <div style="background-color: #E0FFFF; padding: 10px; border-radius: 10px; margin-bottom: 20px; font-size:21px; line-height:1.75">
                 <strong>Kế hoạch cải thiện:</strong> {diary_data[date_key]['improvement_plan']}
             </div>
+
         """, unsafe_allow_html=True)
     else:
         st.warning("Không có dữ liệu cho ngày này.")
@@ -357,6 +366,19 @@ def nhat_ky():
         st.markdown("### Nhập nhật ký cho ngày này:")
         
         # Tạo các input cho nhật ký
+        
+        st.markdown("""
+            <style>
+                .stTextInput {
+                    color: white;  /* Màu chữ */
+                    border: none;  /* Không có viền */
+                    border-radius: 5px;  /* Bo tròn góc */
+                    padding: 10px 20px;  /* Khoảng cách trong nút */
+                    font-size: 25px;  /* Kích thước chữ */
+                    cursor: pointer;  /* Con trỏ khi di chuột qua */
+                }
+            </style>
+            """, unsafe_allow_html=True)
         new_event = st.text_input("Sự việc:", placeholder="Nhập sự việc xảy ra")
         new_emotion = st.text_input("Cảm xúc:", placeholder="Nhập cảm xúc của bạn")
         new_flaw = st.text_input("Khuyết điểm:", placeholder="Nhập khuyết điểm của bạn")
