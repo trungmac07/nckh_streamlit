@@ -163,13 +163,17 @@ def tai_nguyen():
 
     # TÀI LIỆU KHOA HỌC
     if resource == "TÀI LIỆU KHOA HỌC":
-        st.markdown("<h3 style='color: #FFFFE0;'>📚 TÀI LIỆU KHOA HỌC</h3>", unsafe_allow_html=True)
-        st.markdown("[Text Anxiety in Adolescents: The Role of Self-Criticism and Acceptance and Mindfulness Skills](https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/text-anxiety-in-adolescents-the-role-of-selfcriticism-and-acceptance-and-mindfulness-skills/F0B720E018D0A891050899676ADC6430)")
-        st.markdown("[Self-Criticism Scale](https://www.researchgate.net/publication/377149610_Self-Criticism_Scale)")
-        st.markdown("[Self-criticizing and self-criticism: How do I stop the cycle?](https://thriveworks.com/help-with/self-improvement/self-criticism/)")
-        st.markdown("[Self-Criticism](https://www.sciencedirect.com/topics/psychology/self-criticism)")
-        
-        st.video("https://www.youtube.com/watch?v=example")  
+        st.markdown("<h3 style='color: #FFFFE0; margin: 30px 0px'>📚 TÀI LIỆU KHOA HỌC</h3>", unsafe_allow_html=True)
+        links = [
+            ("Text Anxiety in Adolescents: The Role of Self-Criticism and Acceptance and Mindfulness Skills", "https://www.cambridge.org/core/journals/spanish-journal-of-psychology/article/abs/text-anxiety-in-adolescents-the-role-of-selfcriticism-and-acceptance-and-mindfulness-skills/F0B720E018D0A891050899676ADC6430"),
+            ("Self-Criticism Scale", "https://www.researchgate.net/publication/377149610_Self-Criticism_Scale"),
+            ("Self-criticizing and self-criticism: How do I stop the cycle?", "https://thriveworks.com/help-with/self-improvement/self-criticism/"),
+            ("Self-Criticism", "https://www.sciencedirect.com/topics/psychology/self-criticism")
+        ]
+
+        for text, url in links:
+            st.markdown(f'<a href="{url}" style="text-decoration: none; color: #FFFFF0; font-weight: bold; font-size:20px; line-height: 1"><u>{text}</u></a>', unsafe_allow_html=True)
+            st.markdown("<br>", unsafe_allow_html=True)  # Adding space between links
 
     # PODCAST
     elif resource == "PODCAST “LÀM THẾ NÀO ĐỂ TỰ PHÊ BÌNH KHI LÀM VIỆC NHÓM?”":
