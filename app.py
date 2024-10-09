@@ -205,15 +205,72 @@ def tai_nguyen():
         st.video("https://www.youtube.com/watch?v=xSEyk3rFp3g") 
         
 
-
-def video_clips():
-    st.markdown("<h2 style='color: black;'>Video và Postcard về Tự Phê Bình</h2>", unsafe_allow_html=True)
-    st.video("https://www.youtube.com/watch?v=BTTM3Zu9YAI")  
-    st.write("Các video giúp bạn nâng cao quá trình tự phê bình.")
-
 def dien_dan():
-    st.markdown("<h2 style='color: black;'>Diễn Đàn Thảo Luận</h2>", unsafe_allow_html=True)
-    st.text_area(" ", placeholder="Nhập ý kiến tại đây...")
+    st.markdown("<h2 style='color: #FFFFF0;'>Diễn Đàn Thảo Luận</h2>", unsafe_allow_html=True)
+
+    # Danh sách để lưu trữ các tin nhắn
+    chat_history = [
+        ("Nam Đẹp Trai", "Chào bạn, mình thấy bạn mới tham gia diễn đàn. Bạn đã bao giờ thực hành tự phê bình chưa?"),
+        ("My Mít Ướt", "Chào bạn! Mình mới bắt đầu tìm hiểu. Mình từng nghe về khái niệm này trong một buổi hướng nghiệp ở trường, nhưng vẫn chưa thực sự biết cách thực hiện. Bạn có thể chia sẻ quá trình tự phê bình của bạn được không?"),
+        ("Nam Đẹp Trai", "Tất nhiên rồi! Tự phê bình không chỉ là nhận ra lỗi sai mà còn là cơ hội để mình tự phản ánh, học hỏi và phát triển. Quá trình này bắt đầu với việc mình nhận ra rằng không phải lúc nào mình cũng hoàn hảo. Hồi mình học cấp 2, mình thường hay bỏ qua những khuyết điểm nhỏ vì nghĩ rằng không quan trọng. Nhưng dần dần, khi những lỗi nhỏ tích tụ lại, mình nhận ra chúng có thể cản trở sự phát triển của mình."),
+        ("My Mít Ướt", "Nghe có vẻ thách thức thật. Khi bạn nhận ra những lỗi đó, bạn có cảm thấy mất tự tin không?"),
+        ("Nam Đẹp Trai", "Đúng, ban đầu mình cảm thấy như vậy. Lúc nhận ra mình đã không làm tốt trong một số việc, mình khá tự ti và có phần trách móc bản thân. Nhưng rồi mình học cách thay đổi góc nhìn. Mình không coi những lỗi lầm là điều gì đó khiến mình yếu kém, mà là cơ hội để mình học hỏi và cải thiện. Ví dụ, khi nhận ra mình chưa giao tiếp tốt trong nhóm, mình bắt đầu tìm cách lắng nghe nhiều hơn và trình bày ý kiến một cách rõ ràng."),
+        ("My Mít Ướt", "Vậy là bạn sử dụng những điểm yếu để thay đổi và phát triển bản thân?"),
+        ("Nam Đẹp Trai", "Đúng vậy. Mình thấy quan trọng nhất trong tự phê bình là không để nó kéo bạn xuống mà phải biết cách sử dụng nó để nâng bạn lên. Hãy tự hỏi, \"Mình đã làm sai gì?\", nhưng sau đó phải tiếp tục với câu hỏi, \"Mình có thể làm gì để cải thiện điều này?\" Quá trình đó không dễ dàng, nhưng nó thực sự giúp mình trưởng thành."),
+        ("My Mít Ướt", "Nghe thật thú vị! Bạn có lời khuyên nào cho người mới như mình không?"),
+        ("Nam Đẹp Trai", "Nếu bạn mới bắt đầu, hãy bắt đầu từ những điều nhỏ. Bạn có thể viết nhật ký, mỗi ngày dành vài phút tự hỏi bản thân về những điều bạn có thể cải thiện, nhưng đừng chỉ tập trung vào sai lầm. Hãy tự hỏi cả về những gì bạn đã làm tốt. Điều này giúp bạn không chỉ nhận ra khuyết điểm mà còn trân trọng những nỗ lực của mình. Và quan trọng là, hãy kiên nhẫn với bản thân!"),
+        ("My Mít Ướt", "Cảm ơn bạn nhiều! Mình sẽ thử cách đó. Mình đã có chút lo lắng khi nghĩ đến việc phê bình bản thân, nhưng giờ mình cảm thấy lạc quan hơn."),
+        ("Nam Đẹp Trai", "Đừng lo lắng quá! Ai cũng có lúc mắc sai lầm. Quan trọng là bạn biết nhìn nhận và cố gắng cải thiện. Chúc bạn thành công trong hành trình này!"),
+        ("My Mít Ướt", "Cảm ơn bạn! Mình sẽ cố gắng.")]
+
+    # Hiển thị các tin nhắn với hiệu ứng bong bóng
+    for sender, message in chat_history:
+        if sender == "Nam Đẹp Trai":
+            st.markdown(f"""
+                <div style='text-align: left; margin: 10px;'>
+                    <div style='background-color: #1E90FF; font-size: 20px; color: white; padding: 10px; border-radius: 15px; max-width: 70%; display: inline-block;'>
+                        <b>{sender}:</b> {message}
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+        else:
+            st.markdown(f"""
+                <div style='text-align: right; margin: 10px;'>
+                    <div style='background-color: #32CD32; font-size: 20px; color: white; padding: 10px; border-radius: 15px; max-width: 70%; display: inline-block;'>
+                        <b>{sender}:</b> {message}
+                    </div>
+                </div>
+            """, unsafe_allow_html=True)
+
+    # Khung nhập tin nhắn
+    user_message = st.text_area("Nhập ý kiến của bạn tại đây...", height=100, placeholder="Viết tin nhắn của bạn ở đây...", key="user_input")
+
+    # Nút gửi tin nhắn
+    if st.button("Gửi"):
+        if user_message:
+            # Thêm tin nhắn mới vào danh sách
+            chat_history.append(("Bạn", user_message))
+            st.success("Tin nhắn của bạn đã được gửi!")
+            st.experimental_rerun()  # Tải lại trang để cập nhật tin nhắn mới
+        else:
+            st.warning("Vui lòng nhập tin nhắn trước khi gửi.")
+
+    # CSS cho nút
+    st.markdown("""
+    <style>
+    .stButton > button {
+        background-color: #1E90FF;  /* Màu nền nút */
+        color: white;  /* Màu chữ */
+        border: none;  /* Không có viền */
+        border-radius: 5px;  /* Bo tròn góc */
+        padding: 10px 20px;  /* Khoảng cách trong nút */
+        font-size: 16px;  /* Kích thước chữ */
+        cursor: pointer;  /* Con trỏ khi di chuột qua */
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+
 
 def nhat_ky():
     st.markdown("<h2 style='color: black;'>Nhật Ký Tự Phê Bình Cá Nhân</h2>", unsafe_allow_html=True)
@@ -242,10 +299,8 @@ if menu == "🏠 Trang chủ":
     trang_chu()
 elif menu == "📚 Tri thức về tự phê bình":
     tri_thuc()
-elif menu == "📂 Tài nguyên":
+elif menu == "🎬 Tài nguyên":
     tai_nguyen()
-elif menu == "🎬 Video Clips":
-    video_clips()
 elif menu == "💬 Diễn đàn":
     dien_dan()
 elif menu == "📝 Nhật ký cá nhân":
